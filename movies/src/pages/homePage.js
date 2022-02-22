@@ -35,6 +35,13 @@ const MovieListPage = (props) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
 
+    const addToFavorites = (movieId) => {
+      const updatedMovies = movies.map((m) =>
+        m.id === movieId ? { ...m, favorite: true } : m
+      );
+      setMovies(updatedMovies);
+    };
+
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else setGenreFilter(value);
@@ -49,7 +56,7 @@ const MovieListPage = (props) => {
         <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>
           <FilterCard />
         </Grid>
-        <MovieList movies={displayedMovies} />
+           <MovieList movies={displayedMovies} selectFavorite={addToFavorites} />
       </Grid>
     </Grid>
   );
