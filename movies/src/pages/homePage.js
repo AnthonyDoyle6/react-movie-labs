@@ -1,8 +1,10 @@
 import React from "react";
+import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import { getMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
+
 
 const HomePage = (props) => {
 
@@ -24,11 +26,14 @@ const HomePage = (props) => {
 
   return (
     <PageTemplate
-      title='Discover Movies'
+      title="Discover Movies"
       movies={movies}
-      selectFavorite={addToFavorites}
+      action={(movie) => {
+        return <AddToFavoritesIcon movie={movie} />
+      }}
     />
-  );
+);
 };
+
 export default HomePage;
 
