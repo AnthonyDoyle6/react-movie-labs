@@ -14,3 +14,5 @@ const FavoriteMoviesPage = (props) => {
     />
   );
 };
+
+export default FavoriteMoviesPage;
