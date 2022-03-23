@@ -29,14 +29,14 @@ function MovieListPageTemplate({ movies, title, action }) {
       </Grid>
       <Grid item container spacing={5}>
         <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>
-        <MovieList action={action} movies={displayedMovies}></MovieList>
+       
           <FilterCard
             onUserInput={handleChange}
             titleFilter={nameFilter}
             genreFilter={genreFilter}
           />
         </Grid>
-        <MovieList selectFavorite={selectFavorite} movies={displayedMovies}></MovieList>
+        <MovieList action={action} movies={displayedMovies}></MovieList>
       </Grid>
     </Grid>
   );
